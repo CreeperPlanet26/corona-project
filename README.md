@@ -1,0 +1,1 @@
+# Corona / Next.js Frontend
