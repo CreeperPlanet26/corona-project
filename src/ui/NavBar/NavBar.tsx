@@ -9,8 +9,6 @@ import { BugsIcon } from "../../icons/BugsIcon";
 import { NewsIcon } from "../../icons/NewsIcon";
 import { PatchNotesIcon } from "../../icons/PatchNotesIcon";
 import { LoginButton } from "../LoginButton";
-import { useConn } from "../../shared-hooks/useConn";
-import { DashboardUser } from "../DashboardNavBar";
 
 interface NavBarProps {
     isOpen: boolean;
@@ -18,7 +16,6 @@ interface NavBarProps {
 }
 
 export const NavBar: React.FC<NavBarProps> = ({ isOpen, setIsOpen }) => {
-    const { user } = useConn();
     const { route } = useRouter();
 
     return (
@@ -61,15 +58,10 @@ export const NavBar: React.FC<NavBarProps> = ({ isOpen, setIsOpen }) => {
                         </div>
                     </div>
 
-                    {user ? (
-                        <div className="dashboard-user">
-                            <DashboardUser />
-                        </div>
-                    ) : (
-                        <div className="login-button">
-                            <LoginButton />
-                        </div>
-                    )}
+                    <div className="login-button">
+                        <LoginButton />
+                    </div>
+
                 </div>
             </ClickAwayListener>
         </Drawer>

@@ -9,12 +9,9 @@ import { BugsIcon } from "../../icons/BugsIcon";
 import { NewsIcon } from "../../icons/NewsIcon";
 import { PatchNotesIcon } from "../../icons/PatchNotesIcon";
 import { LoginButton } from "../LoginButton";
-import { DashboardUser } from "../DashboardUser";
-import { useConn } from "../../shared-hooks/useConn";
 import { Footer } from "../Footer";
 
 export const DashboardNavBar: React.FC = ({ children }) => {
-    const { user } = useConn();
     const [isOpen, setIsOpen] = useState(false);
     const { route } = useRouter();
 
@@ -64,15 +61,11 @@ export const DashboardNavBar: React.FC = ({ children }) => {
                         ))}
                     </section>
 
-                    {user ? (
-                        <div className="dashboard-user">
-                            <DashboardUser />
-                        </div>
-                    ) : (
-                        <div className="login-button">
-                            <LoginButton />
-                        </div>
-                    )}
+
+                    <div className="login-button">
+                        <LoginButton />
+                    </div>
+
                 </div>
 
                 <div className="children">{<>{children}</>}</div>

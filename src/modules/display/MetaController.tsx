@@ -12,7 +12,7 @@ export interface MetaControllerProps {
 
 export const MetaController: NextPage<MetaControllerProps> = ({
     title = "TTS",
-    description = "The Tomatohead Society (TTS) is a Fortnite clan that strongly supports Team Pizza and is always looking for new members like you!",
+    description = "Corona Project (TTS) is a Fortnite clan that strongly supports Team Pizza and is always looking for new members like you!",
     owner = "Creeper",
     additionalKeywords = [],
     embed = {

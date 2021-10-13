@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@material-ui/core";
 import { LoginButton } from "../../ui/LoginButton";
@@ -7,13 +7,35 @@ import { Footer } from "../../ui/Footer";
 import { JourneyButton } from "../../ui/JourneyButton";
 import { NavBar } from "../../ui/NavBar";
 import { navLinks } from "../../ui/NavBar/NavLinks";
-import { useConn } from "../../shared-hooks/useConn";
+import Chart from 'react-apexcharts'
+
+
+const getCountries = async () => {
+    const countries = await (await fetch("https://coronavirus-19-api.herokuapp.com/countries")).json();
+    console.log(countries)
+    return countries;
+}
+
+const state = {
+    options: {
+        series: [44, 55, 13, 33],
+        labels: ['Apple', 'Mango', 'Orange', 'Watermelon']
+    },
+    series: [{
+        name: 'series-1',
+        data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
+    }]
+}
 
 export const HomePage = () => {
+    const [c, setC] = useState();
     const [isOpen, setIsOpen] = useState(false);
-    const { user } = useConn();
 
-    return (
+    useEffect(() => {
+        getCountries().then(d => setC(d))
+    }, [])
+
+    return window && (
         <div className="home-page">
             <NavBar isOpen={isOpen} setIsOpen={setIsOpen} />
             <nav>
@@ -36,30 +58,20 @@ export const HomePage = () => {
 
             <div className="grid">
                 <div className="text">
-                    <h1>The Tomatohead Society</h1>
+                    <h1>Corona Project</h1>
                     <p>
-                        The Tomatohead Society (TTS) is a Fortnite clan that strongly supports Team Pizza and is always
+                        Corona Project (TTS) is a Fortnite clan that strongly supports Team Pizza and is always
                         looking for new members like you!
                     </p>
                     <section>
                         <div className="login-button">
-                            {user ? (
-                                <Link href="/logout">
-                                    <Button variant="contained" className="logout-button">
-                                        <div className="content">
-                                            <h3>Logout</h3>
-                                            <img src="assets/icons/logout.svg" />
-                                        </div>
-                                    </Button>
-                                </Link>
-                            ) : (
-                                <LoginButton />
-                            )}
+                            <LoginButton />
                         </div>
                         <div className="join-button">
                             <JoinButton />
                         </div>
                     </section>
+                    <Chart options={state.options} series={state.series} type="bar" width={500} height={320} />
                 </div>
                 <img className="tomatohead" src="/assets/tomatohead.png" alt="A picture of tomatohead." />
             </div>
