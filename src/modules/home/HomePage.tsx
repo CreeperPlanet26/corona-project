@@ -7,7 +7,9 @@ import { Footer } from "../../ui/Footer";
 import { JourneyButton } from "../../ui/JourneyButton";
 import { NavBar } from "../../ui/NavBar";
 import { navLinks } from "../../ui/NavBar/NavLinks";
-import Chart from 'react-apexcharts'
+import dynamic from 'next/dynamic'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 
 const getCountries = async () => {
@@ -71,7 +73,7 @@ export const HomePage = () => {
                             <JoinButton />
                         </div>
                     </section>
-                    <Chart options={state.options} series={state.series} type="bar" width={500} height={320} />
+                  {(typeof window !== 'undefined') && <Chart options={state.options} series={state.series} type="bar" width={500} height={320} /> }
                 </div>
                 <img className="tomatohead" src="/assets/tomatohead.png" alt="A picture of tomatohead." />
             </div>
