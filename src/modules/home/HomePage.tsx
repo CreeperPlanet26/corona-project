@@ -18,17 +18,6 @@ const getCountries = async () => {
     return countries;
 }
 
-const state = {
-    options: {
-        series: [44, 55, 13, 33],
-        labels: ['Apple', 'Mango', 'Orange', 'Watermelon']
-    },
-    series: [{
-        name: 'series-1',
-        data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
-    }]
-}
-
 export const HomePage = () => {
     const [c, setC] = useState();
     const [isOpen, setIsOpen] = useState(false);
@@ -73,7 +62,26 @@ export const HomePage = () => {
                             <JoinButton />
                         </div>
                     </section>
-                    {(typeof window !== 'undefined') && <Chart options={state.options} series={state.series} type="bar" width={500} height={320} />}
+                    {(typeof window !== 'undefined') &&
+                        <>
+                            <Chart
+                                type="pie"
+                                width={600}
+                                height={600}
+                                series={[6503, 15942, 0, 44932]}
+                                options={{
+                                    labels: ["USA", "India", "Brazil", "UK"],
+                                    tooltip: {
+                                        y: {
+                                            formatter: (v) => `${v} Cases Today`
+                                        }
+                                    }
+                                }}
+                            >
+
+                            </Chart>
+                        </>
+                    }
                 </div>
                 <img className="tomatohead" src="/assets/tomatohead.png" alt="A picture of tomatohead." />
             </div>
