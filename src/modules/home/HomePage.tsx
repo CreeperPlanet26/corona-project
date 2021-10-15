@@ -37,7 +37,7 @@ export const HomePage = () => {
         getCountries().then(d => setC(d))
     }, [])
 
-    return window && (
+    return (
         <div className="home-page">
             <NavBar isOpen={isOpen} setIsOpen={setIsOpen} />
             <nav>
@@ -73,7 +73,7 @@ export const HomePage = () => {
                             <JoinButton />
                         </div>
                     </section>
-                  {(typeof window !== 'undefined') && <Chart options={state.options} series={state.series} type="bar" width={500} height={320} /> }
+                    {(typeof window !== 'undefined') && <Chart options={state.options} series={state.series} type="bar" width={500} height={320} />}
                 </div>
                 <img className="tomatohead" src="/assets/tomatohead.png" alt="A picture of tomatohead." />
             </div>
