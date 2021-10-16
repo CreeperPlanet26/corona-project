@@ -7,31 +7,17 @@ import { Footer } from "../../ui/Footer";
 import { JourneyButton } from "../../ui/JourneyButton";
 import { NavBar } from "../../ui/NavBar";
 import { navLinks } from "../../ui/NavBar/NavLinks";
-import dynamic from 'next/dynamic'
 
-const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
-
-
-const getCountries = async () => {
-    const countries = await (await fetch("https://coronavirus-19-api.herokuapp.com/countries")).json();
-    console.log(countries)
-    return countries;
-}
 
 export const HomePage = () => {
-    const [c, setC] = useState();
     const [isOpen, setIsOpen] = useState(false);
-
-    useEffect(() => {
-        getCountries().then(d => setC(d))
-    }, [])
 
     return (
         <div className="home-page">
             <NavBar isOpen={isOpen} setIsOpen={setIsOpen} />
             <nav>
                 <Link href="/">
-                    <Button className="tts-button">TTS</Button>
+                    <Button className="tts-button">Corona</Button>
                 </Link>
 
                 <div className="links">
@@ -51,8 +37,7 @@ export const HomePage = () => {
                 <div className="text">
                     <h1>Corona Project</h1>
                     <p>
-                        Corona Project (TTS) is a Fortnite clan that strongly supports Team Pizza and is always
-                        looking for new members like you!
+                        Corona Project shows daily cases from all countries in a pie chart!
                     </p>
                     <section>
                         <div className="login-button">
@@ -62,31 +47,11 @@ export const HomePage = () => {
                             <JoinButton />
                         </div>
                     </section>
-                    {(typeof window !== 'undefined') &&
-                        <>
-                            <Chart
-                                type="pie"
-                                width={600}
-                                height={600}
-                                series={[6503, 15942, 0, 44932]}
-                                options={{
-                                    labels: ["USA", "India", "Brazil", "UK"],
-                                    tooltip: {
-                                        y: {
-                                            formatter: (v) => `${v} Cases Today`
-                                        }
-                                    }
-                                }}
-                            >
-
-                            </Chart>
-                        </>
-                    }
                 </div>
-                <img className="tomatohead" src="/assets/tomatohead.png" alt="A picture of tomatohead." />
+                <img className="tomatohead" src="/assets/corona-logo.png" alt="A picture of tomatohead." />
             </div>
 
-            <article className="team-pizza">
+            {/* <article className="team-pizza">
                 <img src="assets/pizza.svg" alt="A picture of a pizza." />
                 <div className="text">
                     <h1>Team Pizza</h1>
@@ -121,7 +86,7 @@ export const HomePage = () => {
                         <JourneyButton />
                     </div>
                 </div>
-            </article>
+            </article> */}
 
             <Footer />
         </div>

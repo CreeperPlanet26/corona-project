@@ -20,7 +20,7 @@ export const DashboardNavBar: React.FC = ({ children }) => {
             <NavBar isOpen={isOpen} setIsOpen={setIsOpen} />
             <nav>
                 <Link href="/">
-                    <Button className="tts-button">TTS</Button>
+                    <Button className="tts-button">Corona</Button>
                 </Link>
 
                 <Button onClick={() => setIsOpen(true)} className="hamburger">
@@ -31,9 +31,9 @@ export const DashboardNavBar: React.FC = ({ children }) => {
             <section className="section">
                 <div className="side-nav">
                     <header>
-                        <img src="assets/tts-logo-small.png" alt="The TTS logo" />
+                        <img src="assets/corona-logo.png" alt="The TTS logo" />
                         <Link href="/">
-                            <Button className="tts-button on-card">TTS</Button>
+                            <Button className="tts-button on-card">Corona</Button>
                         </Link>
                     </header>
 
@@ -46,11 +46,11 @@ export const DashboardNavBar: React.FC = ({ children }) => {
                                             switch (l.name) {
                                                 case "Dashboard":
                                                     return <DashboardIcon />;
-                                                case "Bugs":
-                                                    return <BugsIcon />;
-                                                case "News":
+                                                // case "Bugs":
+                                                //     return <BugsIcon />;
+                                                case "Home":
                                                     return <NewsIcon />;
-                                                case "Patch Notes":
+                                                case "About":
                                                     return <PatchNotesIcon />;
                                             }
                                         })()}

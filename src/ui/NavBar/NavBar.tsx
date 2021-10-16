@@ -40,11 +40,9 @@ export const NavBar: React.FC<NavBarProps> = ({ isOpen, setIsOpen }) => {
                                                         switch (l.name) {
                                                             case "Dashboard":
                                                                 return <DashboardIcon />;
-                                                            case "Bugs":
-                                                                return <BugsIcon />;
-                                                            case "News":
+                                                            case "Home":
                                                                 return <NewsIcon />;
-                                                            case "Patch Notes":
+                                                            case "About":
                                                                 return <PatchNotesIcon />;
                                                         }
                                                     })()}

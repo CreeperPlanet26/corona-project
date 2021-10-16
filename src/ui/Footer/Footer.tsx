@@ -9,7 +9,7 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ color }) => (
     <div className="footer-ui-component">
         <footer className={color}>
-            <h4>© 2020 Corona Project. All rights reserved.</h4>
+            {/* <h4>© 2020 Corona Project. All rights reserved.</h4> */}
 
             <section className="icons">
                 {footerLinks.map((l) => (
@@ -19,7 +19,7 @@ export const Footer: React.FC<FooterProps> = ({ color }) => (
                 ))}
             </section>
 
-            <h4>Made with 💖 by Corona Project Mods.</h4>
+            {/* <h4>Made with 💖 by Corona Project Mods.</h4> */}
         </footer>
     </div>
 );
