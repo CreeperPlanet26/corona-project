@@ -1,4 +1,4 @@
-export interface CountryData {
+export interface CountriesDataDTO {
     country: string;
     cases: number;
     todayCases: number;
