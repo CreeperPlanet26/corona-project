@@ -9,7 +9,7 @@ export default function Dashboard(props) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const total = await coronaClient.GetTotalCountryCases();
+    const total = await coronaClient.getTotalCountryCases();
     return {
         props: { total }
     }
