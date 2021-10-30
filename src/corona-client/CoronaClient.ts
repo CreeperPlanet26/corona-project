@@ -28,19 +28,6 @@ export class CoronaClient {
 
     public async getTotalCountryCases() {
         const countries = await this._get<CountriesDataDTO[]>("https://coronavirus-19-api.herokuapp.com/countries");
-        // const test = <CountryData[]>await (await fetch(`https://api.covidactnow.org/v2/counties.timeseries.json?apiKey=${process.env.API_KEY}`)).json();
-        const states = await this._get<StatesDataDTO[]>(`https://api.covidactnow.org/v2/states.json?apiKey=${K}`);
-
-        // console.log(states);
-
-        // states.forEach(e => console.log(`${e.state}:`))
-        const arr = [];
-        states.forEach(e => console.log(`${e.state}: ${e.metrics.vaccinationsCompletedRatio * 100}`))
-        states.forEach(e => arr.push(e.metrics.vaccinationsCompletedRatio * 100))
-
-        console.log(states[52])
-
-        console.log(states.find(e => e.state === e.state).state);
 
         // Put all the country names into an array
         const names = countries.map(c => c.country);
@@ -56,6 +43,18 @@ export class CoronaClient {
 
 
         return { names, cases };
+    }
+
+    public async getStatesVaccinations() {
+        const states = await this._get<StatesDataDTO[]>(`https://api.covidactnow.org/v2/states.json?apiKey=${K}`);
+
+        const names = states.map(s => s.state);
+        const vaccinations = states.map(s => s.metrics.vaccinationsCompletedRatio * 100)
+
+        console.log(JSON.stringify(states[1]))
+
+        return { names, vaccinations }
+
     }
 }
 
