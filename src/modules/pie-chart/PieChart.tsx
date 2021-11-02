@@ -18,7 +18,7 @@ export const PieChart = ({ total, sVac }) => {
     return (
         (typeof window !== 'undefined' && today && total) && (
             <>
-                <h1 style={s}>Cases Today</h1>
+                <h1 style={s}>Cases Today per Country</h1>
                 <Chart
                     type="pie"
                     // width="2000px"
@@ -33,7 +33,7 @@ export const PieChart = ({ total, sVac }) => {
                         }
                     }}
                 />
-                <h1 style={s}>Total Cases</h1>
+                <h1 style={s}>Total Cases per Country</h1>
                 <Chart
                     type="pie"
                     // width="2000px"
@@ -49,7 +49,7 @@ export const PieChart = ({ total, sVac }) => {
                     }}
                 />
 
-                <h1 style={s}>State Vaccinations Percent</h1>
+                <h1 style={s}>Percent Vaccinated of Population per State</h1>
                 <Chart
                     type="pie"
                     // width="2000px"
@@ -59,7 +59,7 @@ export const PieChart = ({ total, sVac }) => {
                         labels: sVac.names,
                         tooltip: {
                             y: {
-                                formatter: (v) => `${v}% Vaccinated`
+                                formatter: (v) => `${v}% of people are vaccinated`
                             }
                         }
                     }}

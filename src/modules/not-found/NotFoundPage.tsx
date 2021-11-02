@@ -33,14 +33,11 @@ export const NotFoundPage = () => {
             <div className="main">
                 <img src="/assets/lost.svg" className="lost desktop" alt="A picture of a lost man." />
                 <h2>Oh No!</h2>
-                <p>It seems you’re lost! Here are some suggestions.</p>
+                <p>It seems you’re lost! If this is a bug please report it on GitHub.</p>
                 <section className="content">
-                    <Button className="issue" href="https://github.com/CreeperPlanet26/corona-project/issues" target="_blank">
-                        Open a Issue
+                    <Button className="issue" href="https://github.com/CreeperPlanet26/corona-project/issues/new?assignees=&labels=&template=bug_report.md&title=" target="_blank">
+                        Open an Issue
                     </Button>
-                    <Link href="/bugs">
-                        <Button className="bugs">Report a Bug</Button>
-                    </Link>
                 </section>
                 <img src="/assets/lost.svg" className="lost" alt="A picture of a lost man." />
 
