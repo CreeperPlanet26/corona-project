@@ -18,7 +18,7 @@ export const PieChart = ({ total, sVac }) => {
     return (
         (typeof window !== 'undefined' && today && total) && (
             <>
-                <h1 style={s}>Cases Today per Country</h1>
+                <h1 style={{ ...s, marginTop: "4rem" }}>Cases Today per Country</h1>
                 <Chart
                     type="pie"
                     // width="2000px"
