@@ -11,20 +11,20 @@ export interface MetaControllerProps {
 }
 
 export const MetaController: NextPage<MetaControllerProps> = ({
-    title = "TTS",
-    description = "Corona Project (TTS) is a Fortnite clan that strongly supports Team Pizza and is always looking for new members like you!",
+    title = "Corona Project",
+    description = "Corona Project shows daily cases from all countries in a pie chart!",
     owner = "Creeper",
     additionalKeywords = [],
     embed = {
         hexColor: "#ff3f3f",
-        image: "https://ttsclan.vercel.app/assets/preview.png",
+        // image: "https://ttsclan.vercel.app/assets/preview.png",
     },
 }) => {
     return (
         <Head>
             <meta property="og:locale" content="en-US" />
             <meta property="og:type" content="website" />
-            <meta property="og:url" content="https://ttsclan.vercel.app/" />
+            <meta property="og:url" content="https://corona-project.vercel.app/" />
 
             <title>{title}</title>
             <meta name="og:title" content={title} />
@@ -35,24 +35,17 @@ export const MetaController: NextPage<MetaControllerProps> = ({
             <meta name="author" content={owner} />
             <meta
                 name="keywords"
-                content={`TTS,Dashboard,Fortnite Clan,TTS Clan,Tomatohead,tomatohead society,tomatohead clan${additionalKeywords?.map(
+                content={`Corona${additionalKeywords?.map(
                     (k) => `,${k}`
                 )}`}
             />
             <meta name="theme-color" content={embed.hexColor || "#ff3f3f"} />
 
             <meta name="og:type" content="website" />
-            <meta name="og:site_name" content="TTS" />
+            <meta name="og:site_name" content="Corona Project" />
             {embed.image && <meta name="og:image" content={embed.image} />}
             {embed.image && <meta property="twitter:image" content={embed.image} />}
 
-            <meta property="twitter:card" content="summary_large_image" />
-            <meta property="twitter:site" content="@TheTomatoHeads" />
-            <meta property="twitter:site:id" content="@TheTomatoHeads" />
-            <meta property="twitter:creator" content="@TheTomatoHeads" />
-            <meta property="twitter:creator:id" content="@TheTomatoHeads" />
-
-            <meta name="google-site-verification" content="b1c55Ng4j3VJXfO1MMohWhDDxe4iLPQy_c3DfxSZXq4" />
         </Head>
     );
 };
