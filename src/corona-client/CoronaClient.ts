@@ -51,7 +51,8 @@ export class CoronaClient {
         const names = states.map(s => s.state);
         const vaccinations = states.map(s => s.metrics.vaccinationsCompletedRatio * 100)
 
-        console.log(JSON.stringify(states[1]))
+        // console.log(JSON.stringify(states[1]))
+        console.log(JSON.stringify({ names, vaccinations }))
 
         return { names, vaccinations }
 
