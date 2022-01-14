@@ -48,7 +48,7 @@ export const HomePage = () => {
                         </div>
                     </section>
                 </div>
-                <img className="tomatohead" src="/assets/corona-logo.png" alt="A picture of tomatohead." />
+                <img className="tomatohead" src="/assets/corona-logo.png" alt="A picture of corona." />
             </div>
 
             {/* <article className="team-pizza">
